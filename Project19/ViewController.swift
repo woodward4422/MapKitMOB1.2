@@ -10,10 +10,12 @@ import MapKit
 import UIKit
 
 class ViewController: UIViewController, MKMapViewDelegate {
-	@IBOutlet var mapView: MKMapView!
+	let mapView = MKMapView()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        view.addSubview(mapView)
+        mapView.bindFrameToSuperviewBounds()
 
 		let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics.")
 		let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.")
